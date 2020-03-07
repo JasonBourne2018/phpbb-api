@@ -35,7 +35,7 @@ class UserController extends Controller
         ];
         $validator = Validator::make($inputArr, $rule);
         if ($validator->fails()) {
-            return $validator->errors()->toJson();
+            return response()->json(['code'=>'1','result'=>$validator->errors()->toArray()]);
         }
 
         // 初始化用户信息
